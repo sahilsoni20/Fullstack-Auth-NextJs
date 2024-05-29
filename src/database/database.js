@@ -8,7 +8,7 @@ export async function connectDB() {
   const MONGO_URI = process.env.MONGO_URI;
 
   try {
-    await mongoose.connection(MONGO_URI);
+    await mongoose.connect(MONGO_URI);
     const connection = mongoose.connection;
 
     connection.on("Connected", () => {
@@ -19,7 +19,7 @@ export async function connectDB() {
         console.log("Error while fecthing data from MongoDB:", error);
     });
 
-    connect.on("Disconnected", () => {
+    connection.on("Disconnected", () => {
         console.log("MongoDB disconnected");
     });
 
