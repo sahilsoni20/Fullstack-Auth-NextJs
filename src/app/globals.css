@@ -18,12 +18,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* background: linear-gradient(135deg, #2b014e, #7a3bba); */
+  /* background: linear-gradient(135deg, #1e0030, #4a0066); */
+  background: linear-gradient(60deg, #834caf, #4d1b69, #dfbbf2);
+background-repeat: no-repeat;
+height: 100vh;
 }
 
 @layer utilities {
