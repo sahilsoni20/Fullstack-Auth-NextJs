@@ -21,17 +21,13 @@ const Signin = () => {
   const onSignin = async () => {
     try {
       setLoading(50);
-      const response = await axios.post("/api/users/signin", {
-        username: user.username,
-        email: user.email,
-        password: user.password,
-      });
+      const response = await axios.post("/api/users/signin", user)
       console.log("Sign in successful.", response.data);
       toast.success("Signin Successful.");
       router.push("/profile");
     } catch (error) {
-      console.log("Signin Failed:", error.response?.data?.error || error.message);
-      toast.error("Signin Failed. " + error.response?.data?.error || error.message);
+      console.log("Signin Failed:", error.message);
+      toast.error("Signin Failed. ", error.message);
     } finally {
       setLoading(100);
     }
@@ -114,7 +110,7 @@ const Signin = () => {
             {buttonDisabled ? "No Sign in" : "Sign in"}
           </button>
           <p className="text-center m-2 mb-4 text-sm">
-            Don't have an account?
+            Dont have an account?
             <Link href="/signup"> Sign up </Link>
           </p>
         </div>
