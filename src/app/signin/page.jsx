@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { IoEyeOutline } from "react-icons/io5";
+import { FaRegEyeSlash } from "react-icons/fa";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -21,13 +23,13 @@ const Signin = () => {
   const onSignin = async () => {
     try {
       setLoading(50);
-      const response = await axios.post("/api/users/signin", user)
+      const response = await axios.post("/api/users/signin", user);
       console.log("Sign in successful.", response.data);
       toast.success("Signin Successful.");
       router.push("/profile");
     } catch (error) {
       console.log("Signin Failed:", error.message);
-      toast.error("Signin Failed. ", error.message);
+      toast.error("Signin Failed.", error.message);
     } finally {
       setLoading(100);
     }
@@ -54,6 +56,11 @@ const Signin = () => {
       setButtonDisabled(true);
     }
   }, [user]);
+
+  const [password, setPassword] = useState(true);
+  const handelClick = () => {
+    setPassword(!password);
+  };
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen mx-auto max-w-xl">
@@ -89,10 +96,17 @@ const Signin = () => {
           <label htmlFor="password" className="mb-2">
             Password
             <input
-              type="password"
+              type={password ? "password" : "text"}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               className="p-2 ml-1 my-2 rounded-lg bg-[#4a1872] w-full block shadow-ishd focus:outline-none"
             />
+            <div className="float-right mr-3 mt-[-2.2rem]">
+              {password ? (
+                <IoEyeOutline onClick={handelClick} size={20} />
+              ) : (
+                <FaRegEyeSlash onClick={handelClick} size={20} />
+              )}
+            </div>
           </label>
         </form>
         <div className="flex flex-col text-sm px-1">
