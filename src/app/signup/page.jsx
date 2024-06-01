@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 import LoadingBar from "react-top-loading-bar";
+import { signIn } from "next-auth/react";
+
 
 const SingupPage = () => {
   const router = useRouter();
@@ -125,21 +127,21 @@ const SingupPage = () => {
           </label>
         </form>
         <div className="flex flex-col text-sm px-1">
-          <button className="flex items-center p-2 ml-1 my-2 mt-10 rounded-lg bg-[#4a1872] max-w-96 shadow-ishd">
+          {/* <button className="flex items-center p-2 ml-1 my-2 mt-10 rounded-lg bg-[#4a1872] max-w-96 shadow-ishd">
             <FcGoogle className="ml-2 mr-4" size={25} />
-            <span>Sign up with Google</span>
+            <span className="ml-4" onClick={() => signIn("google")}>Sign up with Google</span>
           </button>
-          <p className="text-center m-2 text-sm">or sign up with</p>
+          <p className="text-center m-2 text-sm">or sign up with</p> */}
           <button
             onClick={onSignup}
-            className="p-2 ml-1 my-2 max-w-96 bg-[#7036a0] rounded-lg shadow-ishd"
+            className="p-2 ml-1 my-2 mt-32 max-w-96 bg-[#7036a0] rounded-lg shadow-ishd"
             disabled={buttonDisabled}
           >
             {buttonDisabled ? "No Sign up" : "Sign up"}
           </button>
         </div>
         <p className="text-center m-2 text-sm">
-          Have an account? <Link href="/signin">Sign in</Link>{" "}
+          Have an account? <Link href="/signin" className="hover:underline">Sign in</Link>{" "}
         </p>
       </div>
     </div>
