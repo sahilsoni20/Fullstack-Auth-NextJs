@@ -1,3 +1,10 @@
+//NOTE:- file structure for this file look like this api(folder) -> auth(folder) -> [...nextauth](folder) -> route.js [due to [...nextauth] i cant push this path into github 
+//and make sure of google client Authorised redirect URIs
+//For use with requests from a web server
+//URIs 1 looks like
+//http://localhost:3000/api/auth/callback/google
+
+
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import User from "@/models/userModel";
