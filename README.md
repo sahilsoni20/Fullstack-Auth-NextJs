@@ -58,12 +58,9 @@ Before getting started, make sure you have the following installed on your machi
 
 5. **Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the app in action!**
 
-<!-- Contributing -->
-## 🤝 Contributing
 
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, feel free to open an issue or submit a pull request.
+## 🪧 Demo 
 
-<!-- License -->
-## 📝 License
+https://github.com/sahilsoni20/Signup-in-nextjs/assets/140968802/9010bb66-18ba-4739-a95f-3108f97df73b
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
